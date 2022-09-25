@@ -28,4 +28,15 @@ pipeline {
 		}	
 	}
 	
+	post{
+		always {
+			echo 'I am awsome. I run always'
+		}
+		sucess {
+			echo 'I run when you are sucess'
+		}
+		failure {
+			echo 'I run when you fail'
+		}
+	}
 }
