@@ -11,17 +11,17 @@ node {
 pipeline {
 	agent any 
 	stages {
-		stages('Build'){
+		stage('Build'){
 			steps{
 				echo "Build"
 			}
 		}
-		stages('Test'){
+		stage('Test'){
 			steps{
 				echo "Test"
 			}
 		}
-		stages('IntegraionTest'){
+		stage('IntegraionTest'){
 			steps{
 				echo "IntegraionTest"
 			}
