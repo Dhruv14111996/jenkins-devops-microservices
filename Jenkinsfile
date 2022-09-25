@@ -9,10 +9,12 @@ node {
 
 //DECLARATIVE = in this we don't need any node we need pipeline.
 pipeline {
-	agent any 
+	//agent any
+	agent { docker { image 'maven:3.6.3'} } 
 	stages {
 		stage('Build'){
 			steps{
+				sh 'maven --version'
 				echo "Build"
 			}
 		}
