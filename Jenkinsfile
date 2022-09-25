@@ -45,7 +45,12 @@ pipeline {
 				sh "mvn failsafe:integration-test failsafe:verify"
 			}
 		}
-
+		stage('Package') {
+			steps {
+				sh "mvn package -DskipTests"
+			}
+		}
+		
 		stage('Build Docker Image') {
 			steps {
 				//"docker build -t dhruv1411/currency-exchange:$env.BUILD_TAG"
@@ -54,7 +59,7 @@ pipeline {
 				}
 			}
 		}
-		stage('Build Docker Image') {
+		stage('Push Docker Image') {
 			steps {
 				script {
 					docker.withRegistry('', 'dockerhub') {
